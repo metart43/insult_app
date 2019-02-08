@@ -1,0 +1,2 @@
+class InsultsController < ApplicationController
+end
