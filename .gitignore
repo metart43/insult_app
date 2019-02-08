@@ -13,6 +13,9 @@
 /db/seeds.rb
 /db/schema.rb
 
+# Ignore Gemfile.lock
+.Gemfile.lock
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
