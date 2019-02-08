@@ -1,0 +1,7 @@
+<%= form_for @insult do |f|%>
+<%= f.label :content %>
+<%= f.text_field :content %>
+<%= f.label :bully %>
+<%= f.collection_select(:bully_id, User.all, :id, :name, :prompt => true) %>
+<%= f.submit %>
+<% end %>
