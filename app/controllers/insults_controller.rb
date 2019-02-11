@@ -9,9 +9,8 @@ class InsultsController < ApplicationController
   end
 
   def create
-    byebug
     @insult = Insult.create(insult_params)
-    # @insult.victims.build(params[:insult][:victim_ids])
+    # associate_victims(params[:insult][:victim_ids], @insult)
     params[:insult][:victim_ids].reject(&:empty?).each do |v|
       @insult.victims << User.find(v)
     end
