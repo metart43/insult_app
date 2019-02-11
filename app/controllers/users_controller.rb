@@ -11,9 +11,14 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    if user.save
+    if user.save && params[:user][:password] == params[:user][:password_confirmation]
+      session[:user_id] = user.id
       redirect_to user_path(user)
-    else
+    elsif !user.save
+      flash["notice"] = "That username is already taken."
+      render :new
+    elsif params[:user][:password] != params[:user][:password_confirmation]
+      flash["notice"] = "Passwords must match."
       render :new
     end
   end
@@ -37,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username)
+    params.require(:user).permit(:name, :username, :password, :password_confirmation)
   end
 
   def get_user
