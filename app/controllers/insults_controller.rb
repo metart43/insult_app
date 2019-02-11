@@ -2,14 +2,22 @@ class InsultsController < ApplicationController
   before_action :find_insult, only: [:show, :destroy]
   def show
   end
+
   def new
     @insult = Insult.new
+    @users = User.where.not(id: current_user.id)
   end
+
   def create
+    byebug
     @insult = Insult.create(insult_params)
-    @users = User.all
+    # @insult.victims.build(params[:insult][:victim_ids])
+    params[:insult][:victim_ids].reject(&:empty?).each do |v|
+      @insult.victims << User.find(v)
+    end
     redirect_to @insult
   end
+
   def destroy
     @insult.destroy
   end
@@ -19,7 +27,11 @@ class InsultsController < ApplicationController
 def find_insult
   @insult = Insult.find(params[:id])
 end
+
 def insult_params
-  params.require(:insult).permit(:content, :bully)
+  parameters = params.require(:insult).permit(:content).to_h
+  parameters[:bully] = current_user
+  parameters
 end
+
 end

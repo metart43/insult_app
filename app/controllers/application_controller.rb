@@ -2,11 +2,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    if @username
-      return @username
+    if @user
+      return @user
     else
-      user = User.find_by(id: session["user_id"])
-      @username = user.username
+      @user = User.find_by(id: session["user_id"])
     end
   end
 

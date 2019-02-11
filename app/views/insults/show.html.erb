@@ -1,5 +1,9 @@
 <h2>Insult:</h2>
 <%= @insult.content %>
-<h1>Bully: </h1>
+<h2>Bully: </h2>
 <%= @insult.bully.name %>
+<h2>Victims: </h2>
+<% @insult.victims.each do |v| %>
+  <%= v.name %><br>
+<% end %><br><br>
 <%= link_to "Send this insult to Heaven", @insult, method: :delete %>

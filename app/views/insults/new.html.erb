@@ -1,7 +1,7 @@
 <%= form_for @insult do |f|%>
 <%= f.label :content %>
 <%= f.text_field :content %>
-<%= f.label :bully %>
-<%= f.collection_select(:bully_id, User.all, :id, :name, :prompt => true) %>
+<%= f.label :victim_ids %>
+<%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true}) %>
 <%= f.submit %>
 <% end %>
