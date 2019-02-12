@@ -2,6 +2,8 @@
 <%= @insult.content %>
 <h2>Bully: </h2>
 <%= @insult.bully.name %>
+<h2>Group:</h2>
+<%= @insult.group.name %>
 <h2>Victims: </h2>
 <% @insult.victims.each do |v| %>
   <%= v.name %><br>

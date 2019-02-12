@@ -29,7 +29,7 @@ def find_insult
 end
 
 def insult_params
-  parameters = params.require(:insult).permit(:content).to_h
+  parameters = params.require(:insult).permit(:content, :group_id).to_h
   parameters[:bully] = current_user
   parameters
 end

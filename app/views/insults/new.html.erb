@@ -1,9 +1,9 @@
+<h3>You are crteaing an insult for: <%= @group.name %></h3>
 <%= form_for @insult do |f|%>
 <%= f.label :content %>
 <%= f.text_field :content %>
 <%= f.label :victim_ids %>
 <%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true}) %>
-<%= f.label :group %>
-<%= @group.name %>
+<%= f.hidden_field :group_id, value: @group.id %>
 <%= f.submit %>
 <% end %>
