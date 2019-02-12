@@ -1,0 +1,18 @@
+<h3>Group name:</h3>
+<%= @group.name %>
+<h4>Group Description:</h4>
+<%= @group.description %>
+<h4>Group members:</h4>
+<ul>
+  <% @group.users.each do |u| %>
+    <li>Username: <%= u.name %></li>
+    <li>Insulted victims <%= u.insults.count %> times</li>
+        <% u.insults.each do |i| %>
+        <li> Content: <%= i.content %></li>
+        <li><%= "#{u.name}'s" %> Victims: <% i.victims.each do |v| %></li>
+        <li><%= v.name %></li>
+        <% end %>
+        <% end %>
+    <% end %>
+</ul>
+<%= link_to "Add insult to group", new_insult_path(group_id: @group.id) %>
