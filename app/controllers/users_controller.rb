@@ -23,6 +23,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def home
+    @user = current_user
+    @groups = @user.groups
+    @insults = @groups.map(&:insults).flatten
+  end
+
   def edit
   end
 
