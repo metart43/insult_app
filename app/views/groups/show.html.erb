@@ -15,6 +15,13 @@
         <% end %>
     <% end %>
 </ul>
+<h3>Search for a friend to add:</h3>
+<%= form_tag({controller: "users", action: "search_results"}, method: "get") do %>
+  <%= label_tag(:q, "Search for a friend:") %><br>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <% if @group.users.include?(current_user) %>
 <%= link_to "Add insult to group", new_insult_path(group_id: @group.id) %>
 <%= link_to "Leave a group", leave_path(@group.id), method: :post%>
