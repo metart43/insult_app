@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authorized
 
   before_action :get_user, only: [:show, :edit, :update]
 
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @insults = @user.all_insults
   end
 
   def new

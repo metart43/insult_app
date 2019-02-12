@@ -1,0 +1,5 @@
+<% @insults.sort_by(&:created_at).reverse.each do |i| %>
+  <h4><%= i.bully.name %> (<%= link_to "@#{i.bully.username}", user_path(i.bully) %>) in <%= i.group.name %> on <%= i.created_at.strftime("%b %d") %> at <%= i.created_at.strftime("%H:%M") %></h4>
+  <p>insulted <%= i.victims.map(&:link_username).to_sentence.html_safe %>:</p>
+  <p><%= link_to i.content, insult_path(i) %></p>
+<% end %>

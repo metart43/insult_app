@@ -15,6 +15,10 @@
         <% end %>
     <% end %>
 </ul>
+
+<h4>Insults</h4>
+<%= render "insult_feed" %>
+
 <h3>Search for a friend to add:</h3>
 <%= form_tag({controller: "users", action: "search_results"}, method: "get") do %>
   <%= label_tag(:q, "Search for a friend:") %><br>

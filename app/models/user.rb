@@ -18,6 +18,13 @@ class User < ApplicationRecord
     end
   end
 
+  def all_insults
+    insults = []
+    insults << self.insults
+    insults << UserInsult.where(victim: self).map(&:insult)
+    insults.flatten
+  end
+
   def link_username
     "<a href='/users/"+self.id.to_s+"'>@"+self.username+"</a>"
   end

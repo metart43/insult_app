@@ -1,5 +1,7 @@
 class InsultsController < ApplicationController
+  before_action :authorized
   before_action :find_insult, only: [:show, :destroy]
+  
   def show
   end
 

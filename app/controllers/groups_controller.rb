@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :authorized
+  
   def search_results
     @query = params[:q]
     @groups = Group.search(params[:q])
@@ -15,6 +17,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @insults = @group.insults
   end
 
   def leave
