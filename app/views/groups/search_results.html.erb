@@ -1,0 +1,5 @@
+<h3>Search results for <%= @query %></h3>
+
+<% @groups.each do |g| %>
+  <%= link_to g.name, group_path(g) %>
+<% end %>

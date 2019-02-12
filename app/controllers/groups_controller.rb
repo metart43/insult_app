@@ -1,7 +1,13 @@
 class GroupsController < ApplicationController
+  def search_results
+    @query = params[:q]
+    @groups = Group.search(params[:q])
+  end
+
   def new
     @group = Group.new
   end
+
   def create
     @group = Group.create(group_params)
     redirect_to @group

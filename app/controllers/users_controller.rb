@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update]
 
+  def search_results
+    @query = params[:q]
+    @users = User.search(@query)
+  end
+
   def show
   end
 
@@ -31,6 +36,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
