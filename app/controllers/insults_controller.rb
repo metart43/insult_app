@@ -1,27 +1,34 @@
 class InsultsController < ApplicationController
   before_action :authorized
-  before_action :find_insult, only: [:show, :destroy]
-  
+  before_action :find_insult, only: [:show]
+
   def show
   end
 
   def new
     @insult = Insult.new
-    @users = User.where.not(id: current_user.id)
     @group = Group.find(params[:group_id])
+    @users = @group.users.where.not(id: current_user.id)
   end
 
   def create
-    @insult = Insult.create(insult_params)
-    # associate_victims(params[:insult][:victim_ids], @insult)
-    params[:insult][:victim_ids].reject(&:empty?).each do |v|
-      @insult.victims << User.find(v)
+    @insult = Insult.new(insult_params)
+    if @insult.save
+      params[:insult][:victim_ids].reject(&:empty?).each do |v|
+        @insult.victims << User.find(v)
+      end
+      redirect_to @insult
+    else
+      @group = Group.find(@insult.group_id)
+      @users = @group.users.where.not(id: current_user.id)
+      render :new
     end
-    redirect_to @insult
   end
 
+
   def destroy
-    @insult.destroy
+    Insult.destroy(params[:id])
+    redirect_to home_path
   end
 
   private

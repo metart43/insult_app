@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :groups, only: [:show, :create, :new]
-  resources :insults, only: [:new, :create, :show, :delete]
+  resources :insults, only: [:new, :create, :show]
+  delete 'insults/:id', to: 'insults#destroy'
   resources :users, except: [:index]
   post '/leave/:id', to: 'groups#leave', as: 'leave'
   post "/join/:id", to: 'groups#join', as: 'join'

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authorized
-
+  before_action :authorized, except: [:new, :create]
   before_action :get_user, only: [:show, :edit, :update]
+  layout :resolve_layout
 
   def search_results
     @query = params[:q]
@@ -14,19 +14,14 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render :layout => false
   end
 
   def create
-    user = User.new(user_params)
-    if user.save && params[:user][:password] == params[:user][:password_confirmation]
-      session[:user_id] = user.id
-      redirect_to user_path(user)
-    elsif !user.save
-      flash["notice"] = "That username is already taken."
-      render :new
-    elsif params[:user][:password] != params[:user][:password_confirmation]
-      flash["notice"] = "Passwords must match."
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    elsif !@user.save
       render :new
     end
   end
@@ -34,7 +29,7 @@ class UsersController < ApplicationController
   def home
     @user = current_user
     @groups = @user.groups
-    @insults = @groups.map(&:insults).flatten.sort_by(&:created_at).reverse
+    @insults = @groups.map(&:insults).flatten
   end
 
   def edit
@@ -62,6 +57,15 @@ class UsersController < ApplicationController
 
   def get_user
     @user = User.find(params[:id])
+  end
+
+  def resolve_layout
+    case action_name
+    when "new", "create"
+      false
+    else
+      "application"
+    end
   end
 
 end

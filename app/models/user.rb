@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :insults,  foreign_key: "bully_id"
   has_many :user_insults, foreign_key: "victim_id"
-  has_many :user_groups
+  has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true
@@ -20,8 +20,9 @@ class User < ApplicationRecord
 
   def all_insults
     insults = []
-    insults << self.insults
-    insults << UserInsult.where(victim: self).map(&:insult)
+    insults << self.insults if !self.insults.nil?
+    victim_insults = UserInsult.where(victim: self).map(&:insult)
+    insults << victim_insults if !victim_insults.nil?
     insults.flatten
   end
 
