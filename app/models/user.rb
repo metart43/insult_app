@@ -18,4 +18,8 @@ class User < ApplicationRecord
     end
   end
 
+  def link_username
+    "<a href='/users/"+self.id.to_s+"'>@"+self.username+"</a>"
+  end
+
 end

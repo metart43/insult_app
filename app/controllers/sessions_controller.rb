@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    render :layout => false
     session.clear
     redirect_to login_path
   end

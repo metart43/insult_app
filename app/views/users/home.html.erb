@@ -24,3 +24,8 @@
 <% end %>
 
 <h3>Main page</h3>
+<% @insults.each do |i| %>
+  <h4><%= i.bully.name %> (<%= link_to "@#{i.bully.username}", user_path(i.bully) %>) in <%= i.group.name %> on <%= i.created_at.strftime("%b %d") %></h4>
+  <p>insulted <%= i.victims.map(&:link_username).to_sentence.html_safe %>:</p>
+  <p><%= i.content %></p>
+<% end %>

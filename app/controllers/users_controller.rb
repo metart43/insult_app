@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    render :layout => false
     @user = User.new
+    render :layout => false
   end
 
   def create
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def home
     @user = current_user
     @groups = @user.groups
-    @insults = @groups.map(&:insults).flatten
+    @insults = @groups.map(&:insults).flatten.sort_by(&:created_at).reverse
   end
 
   def edit
