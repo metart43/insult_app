@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  get "search_groups", to: "groups#search_results"
+  get "search_users", to: "users#search_results"
 end
