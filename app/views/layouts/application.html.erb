@@ -11,9 +11,10 @@
 
   <body>
     <div class="header">
-      <% if session["user_id"] %>
-        <%= link_to "Log out", logout_path, method: "delete" %>
-      <% end %>
+      <%= button_to current_user.name, user_path(current_user), method: "get" %>
+      <%= button_to "Edit profile", edit_user_path(current_user), method: "get" %>
+      <%= button_to "Home", home_path, method: "get" %>
+      <%= button_to "Log out", logout_path, method: "delete" %>
     </div>
     <%= yield %>
   </body>

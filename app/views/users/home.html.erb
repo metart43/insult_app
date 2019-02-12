@@ -1,0 +1,14 @@
+<h1>Home page for <%= @user.name %></h1>
+
+<h3>Sidebar</h3>
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <% @groups.each do |g| %>
+      <%= link_to g.name, group_path(g) %>
+    <% end %>
+  </div>
+</div>
+
+<h3>Main page</h3>
