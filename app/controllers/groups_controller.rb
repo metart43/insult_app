@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authorized
-  
+
   def search_results
     @query = params[:q]
     @groups = Group.search(params[:q])
@@ -30,6 +30,13 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.users << current_user
     redirect_to @group
+  end
+
+  def add
+    user = User.find(params[:user_id])
+    group = Group.find(params[:group_id])
+    group.users << user
+    redirect_to group
   end
 
   private

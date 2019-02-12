@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   post '/leave/:id', to: 'groups#leave', as: 'leave'
   post "/join/:id", to: 'groups#join', as: 'join'
+  post "/add/:id", to: "groups#add", as: "add"
   get '/home', to: 'users#home'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

@@ -28,7 +28,7 @@
 
 <% if @group.users.include?(current_user) %>
 <%= link_to "Add insult to group", new_insult_path(group_id: @group.id) %>
-<%= link_to "Leave a group", leave_path(@group.id), method: :post%>
+<%= link_to "Leave this group", leave_path(@group.id), method: :post%>
 <% else %>
-<%= link_to "Join a group", join_path(@group.id), method: :post %>
+<%= link_to "Join this group", join_path(@group.id), method: :post %>
 <% end %>
