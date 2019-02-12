@@ -1,5 +1,3 @@
-<h1>Home page for <%= @user.name %></h1>
-
 <h3>Sidebar</h3>
 
 <div class="dropdown">
@@ -10,5 +8,12 @@
     <% end %>
   </div>
 </div>
-
+<br><br>
+<%= link_to "Create a new group", new_group_path %>
+<br><br>
+<%= form_tag("groups/search", method: "get") do %>
+  <%= label_tag(:q, "Search for a group:") %><br>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 <h3>Main page</h3>
