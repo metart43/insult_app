@@ -1,9 +1,5 @@
 class InsultsController < ApplicationController
   before_action :authorized
-  before_action :find_insult, only: [:show]
-
-  def show
-  end
 
   def new
     @insult = Insult.new
@@ -17,7 +13,8 @@ class InsultsController < ApplicationController
       params[:insult][:victim_ids].reject(&:empty?).each do |v|
         @insult.victims << User.find(v)
       end
-      redirect_to @insult
+      @group = Group.find(@insult.group_id)
+      redirect_to group_path(@group)
     else
       @group = Group.find(@insult.group_id)
       @users = @group.users.where.not(id: current_user.id)
@@ -28,7 +25,7 @@ class InsultsController < ApplicationController
 
   def destroy
     Insult.destroy(params[:id])
-    redirect_to home_path
+    redirect_back(fallback_location: home_path)
   end
 
   private
