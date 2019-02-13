@@ -4,13 +4,12 @@
 
 .sidebar {
   height: 113px;
-  width: 160px;
+  width: 180px;
   flex: 0 auto;
-  position: fixed;
 }
 
 .feed{
-  padding-left: 200px;
+  padding-left: 220px;
 }
 
 .side-button {
@@ -72,3 +71,10 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.insult-box {
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  padding: 15px;
+}

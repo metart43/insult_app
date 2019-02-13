@@ -39,7 +39,7 @@
 
 
 
-    <div class="sidebar btn-group-vertical" role="group">
+    <div class="sidebar sticky-top btn-group-vertical" role="group">
       <button type="button" class="side-button btn btn-info btn-block"><%= link_to "Create a new group", new_group_path %></button>
        <div class="dropdown">
          <button type="button" class="side-button btn btn-info btn-block">Your groups</button>
@@ -60,8 +60,14 @@
 
     </div>
     <div class="row">
-      <div class="feed col-12">
+      <div class="col-1">
+
+      </div>
+      <div class="feed col-8">
         <%= yield %>
+      </div>
+      <div class="col-3">
+
       </div>
     </div>
 
