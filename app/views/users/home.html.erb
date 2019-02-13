@@ -24,7 +24,14 @@
 <% end %>
 
 <h3>Add insult</h3>
-
+<div class="dropdown">
+  <button class="dropbtn">Your groups</button>
+  <div class="dropdown-content">
+    <% @groups.each do |g| %>
+      <%= link_to g.name, new_insult_path(group_id: g.id) %>
+    <% end %>
+  </div>
+</div>
 
 <h3>Insult feed</h3>
 
