@@ -5,7 +5,7 @@
       <p>insulted <%= i.victims.map(&:link_username).to_sentence.html_safe %>:</p>
       <p><%= i.content %></p>
       <% if i.bully == current_user || i.victims.include?(current_user) %>
-        <%= button_to "Delete this insult", insult_path(i), method: :delete %>
+        <a href="/insults/<%=i.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-insult-button" role="button" data-method="delete">Send this insult to heaven</a>
       <% end %>
     </div>
     <% end %>

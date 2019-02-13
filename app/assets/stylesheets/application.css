@@ -1,5 +1,9 @@
 .nav {
-  background-color: #d5d5d4;
+  background-color: #FFCC43;
+}
+
+.nav-item {
+  margin-right: 10px;
 }
 
 .sidebar {
@@ -24,6 +28,10 @@
 .side-button a:hover {
   text-decoration: none;
 }
+
+/* .nav a:visited {
+  color: black;
+} */
 
 .search-bar {
   padding: .5rem 1rem;
@@ -74,7 +82,21 @@
 
 .insult-box {
   border: 1px solid gray;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 15px;
   padding: 15px;
+  background-color: #FAF7EF;
+}
+
+.insult-box a:not(#delete-insult-button) {
+  color: #395EFF;
+}
+
+#delete-insult-button:hover {
+  color: #343a40;
+  background-color: #FFCC43;
+}
+
+.insult-box a:hover {
+  text-decoration: none;
 }

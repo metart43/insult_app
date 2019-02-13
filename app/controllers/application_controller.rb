@@ -25,4 +25,10 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
+  def search_results
+    @query = params[:q]
+    @users = User.search(@query)
+    @groups = Group.search(@query)
+  end
+
 end

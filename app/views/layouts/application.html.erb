@@ -10,36 +10,19 @@
   </head>
 
   <body>
-      <ul class="nav sticky-top justify-content-end">
-        <li class="nav-item">
-          <%= link_to current_user.name, user_path(current_user), {class: "nav-link"} %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Home", home_path, {class: "nav-link"} %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log out", logout_path, {class: "nav-link", method: "delete"} %>
-        </li>
-        <div class="nav-item-dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Search Menu
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                <%= form_tag({controller: "groups", action: "search_results"}, {class: "dropdown-item", method: "get"}) do %>
-                <%= text_field_tag :q, nil, placeholder: "Search groups" %>
-                <%= submit_tag("Search") %>
-                <% end %>
-                <%= form_tag({controller: "users", action: "search_results"}, {class: "dropdown-item", method: "get"}) do %>
-                  <%= text_field_tag :q, nil, placeholder: "Search people" %>
-                  <%= submit_tag("Search") %>
-                <% end %>
-          </div>
-        </div>
-      </ul>
+      <nav class="nav navbar navbar-light sticky-top justify-content-end">
+        <a href="/users/<%=current_user.id%>" class="nav-item btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get"><%=current_user.name%></a>
+        <a href="/home" class="nav-item btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get">Home</a>
+        <a href="/logout" class="nav-item btn btn-outline-dark my-2 my-sm-0" role="button" data-method="delete">Log out</a>
+          <form class="form-inline" action="/search_results" method="get">
+            <input class="form-control mr-sm-2" type="text" name="q" id="q" placeholder="Search InsultApp">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+          </form>
+      </nav>
 
 
 
-    <div class="sidebar sticky-top btn-group-vertical" role="group">
+    <div class="sidebar btn-group-vertical" role="group">
       <button type="button" class="side-button btn btn-info btn-block"><%= link_to "Create a new group", new_group_path %></button>
        <div class="dropdown">
          <button type="button" class="side-button btn btn-info btn-block">Your groups</button>
