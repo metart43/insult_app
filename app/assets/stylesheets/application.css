@@ -4,8 +4,13 @@
 
 .sidebar {
   height: 113px;
+  width: 160px;
   flex: 0 auto;
-  /* position: fixed; */
+  position: fixed;
+}
+
+.feed{
+  padding-left: 200px;
 }
 
 .side-button {
