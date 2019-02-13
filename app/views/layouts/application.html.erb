@@ -4,18 +4,58 @@
     <title>InsultApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="header">
-      <%= link_to current_user.name, user_path(current_user) %>
-      <%= link_to "Edit profile", edit_user_path(current_user) %>
-      <%= link_to "Home", home_path %>
-      <%= link_to "Log out", logout_path, method: "delete" %>
+
+    <ul class="nav">
+      <li class="nav-item">
+        <%= link_to current_user.name, user_path(current_user), {class: "nav-link"} %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Home", home_path, {class: "nav-link"} %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log out", logout_path, {class: "nav-link", method: "delete"} %>
+      </li>
+        <li class="nav-item search-bar">
+          <%= form_tag({controller: "groups", action: "search_results"}, method: "get") do %>
+            <%= text_field_tag :q, nil, placeholder: "Search groups" %>
+            <%= submit_tag("Search") %>
+          <% end %>
+        </li>
+        <li class="nav-item search-bar">
+          <%= form_tag({controller: "users", action: "search_results"}, method: "get") do %>
+            <%= text_field_tag :q, nil, placeholder: "Search people" %>
+            <%= submit_tag("Search") %>
+          <% end %>
+        </li>
+    </ul>
+
+    <div class="row">
+      <div class="sidebar btn-group-vertical col-2" role="group">
+        <button type="button" class="side-button btn btn-info btn-block"><%= link_to "Create a new group", new_group_path %></button>
+         <div class="dropdown">
+           <button type="button" class="btn btn-info btn-block">Your groups</button>
+           <div class="dropdown-content">
+             <% current_user_groups.each do |g| %>
+               <%= link_to g.name, group_path(g) %>
+             <% end %>
+           </div>
+         </div>
+
+      </div>
+
+      <div class="feed col-10">
+        <%= yield %>
+      </div>
     </div>
-    <%= yield %>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
   </body>
 </html>
