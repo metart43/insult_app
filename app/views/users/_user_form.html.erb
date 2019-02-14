@@ -1,11 +1,13 @@
 <%= form_for @user do |f| %>
   <%= f.label :name %>
-  <p><%= f.text_field :name  %></p>
+  <p><%= f.text_field :name, placeholder: "Trashy Name", class: 'form-control'  %></p>
   <%= f.label :username %>
-  <p><%= f.text_field :username %></p>
+  <p><%= f.text_field :username, placeholder: "Trashy Username", class: 'form-control' %></p>
   <%= f.label :password %>
-  <p><%= f.password_field :password %></p>
+  <p><%= f.password_field :password, class: 'form-control' %></p>
   <%= f.label :password_confirmation %>
-  <p><%= f.password_field :password_confirmation %></p>
-  <%= f.submit %>
+  <p><%= f.password_field :password_confirmation, class: 'form-control' %></p>
+  <%= button_tag(:class => 'btn btn-outline-dark my-2 my-sm-0') do %>
+    Trash! <i class="fas fa-trash-alt"></i>
+    <% end %>
 <% end %>
