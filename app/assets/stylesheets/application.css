@@ -195,3 +195,11 @@ margin-top: 25px;
 margin-right: 450px;
 margin-left: 200px;
 }
+
+.search-box {
+  margin-top: 15px;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #FAF7EF;
+  color: #343a40;
+}

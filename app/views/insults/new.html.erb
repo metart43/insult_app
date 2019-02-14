@@ -1,17 +1,22 @@
-<% if @insult.errors.any? %>
-<ul>
-  <% @insult.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
+<div class="col-8">
 
-<h3>You are creating an insult for: <%= @group.name %></h3>
-<%= form_for @insult do |f|%>
-<%= f.label :content %>
-<%= f.text_field :content %>
-<%= f.label :victim_ids %>
-<%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true}) %>
-<%= f.hidden_field :group_id, value: @group.id %>
-<%= f.submit %>
-<% end %>
+  </div>
+  <% if @insult.errors.any? %>
+  <ul>
+    <% @insult.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <h3>You are creating an insult for: <%= @group.name %></h3>
+  <%= form_for @insult do |f|%>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.label :victim_ids %>
+  <%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true}) %>
+  <%= f.hidden_field :group_id, value: @group.id %>
+  <%= f.submit %>
+  <% end %>
+
+</div>
