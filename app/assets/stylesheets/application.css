@@ -211,3 +211,11 @@ margin-left: 200px;
 .form-control{
   width: 350px;
 }
+
+.form-box {
+  margin-top: 15px;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #FAF7EF;
+  color: #343a40;
+}

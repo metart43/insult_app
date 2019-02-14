@@ -1,7 +1,9 @@
-<div class="col-2">
+<div class="col-1">
   </div>
-<div class="col-5" id="group_form">
-<h3>Create A New Dumpster <i class="fas fa-dumpster"></i></h3>
+<div class="col-6" id="group_form">
+  <div class="show_heading">
+<span><b>Create A New Dumpster <i class="fas fa-dumpster"></i></b></span>
+</div>
 
 <div class="form">
   <% if @group.errors.any? %>
@@ -11,15 +13,16 @@
     <% end %>
   </ul>
   <% end %>
-
+<div class="form-box">
 <%= form_for @group do |f| %>
 <%= f.label :name %>
-<p><%= f.text_field :name, placeholder: "Name your dumpster" %></p>
+<p><%= f.text_field :name, placeholder: "Name your dumpster", class: 'form-control' %></p>
 <%= f.label :description %>
-<p><%= f.text_area :description, placeholder: "Describe your dumpster" %></p>
+<p><%= f.text_area :description, placeholder: "Describe your dumpster", class: 'form-control' %></p>
 <%= button_tag( :class => 'btn btn-outline-dark my-2 my-sm-0') do %>
   Create a Dumpster <i class="fas fa-dumpster"></i>
   <% end %>
 <% end %>
+</div>
 </div>
 </div>
