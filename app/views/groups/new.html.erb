@@ -4,13 +4,22 @@
 <h3>Create A New Dumpster <i class="fas fa-dumpster"></i></h3>
 
 <div class="form">
+  <% if @group.errors.any? %>
+  <ul>
+    <% @group.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
 
 <%= form_for @group do |f| %>
 <%= f.label :name %>
 <p><%= f.text_field :name, placeholder: "Name your dumpster" %></p>
 <%= f.label :description %>
 <p><%= f.text_area :description, placeholder: "Describe your dumpster" %></p>
-<%= f.submit %>
+<%= button_tag( :class => 'btn btn-outline-dark my-2 my-sm-0') do %>
+  Create a Dumpster <i class="fas fa-dumpster"></i>
+  <% end %>
 <% end %>
 </div>
 </div>

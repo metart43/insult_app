@@ -12,7 +12,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.create(group_params)
-    redirect_to @group
+        if @group.save
+        redirect_to @group
+      else
+        render :new
+      end
   end
 
   def show

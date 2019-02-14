@@ -1,3 +1,8 @@
+
+<div class="col-1">
+   </div>
+
+<div class="new_insult col-7">
 <% if @insult.errors.any? %>
 <ul>
   <% @insult.errors.full_messages.each do |msg| %>
@@ -6,12 +11,17 @@
 </ul>
 <% end %>
 
-<h3>You are creating an insult for: <%= @group.name %></h3>
+<h3>Trash someone in: <%= @group.name %></h3>
 <%= form_for @insult do |f|%>
-<%= f.label :content %>
-<%= f.text_field :content %>
-<%= f.label :victim_ids %>
-<%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true}) %>
-<%= f.hidden_field :group_id, value: @group.id %>
-<%= f.submit %>
+<%= label_tag(:content) do %>
+Content <i class="fas fa-poo"></i>
 <% end %>
+<p><%= f.text_area :content %></p>
+<p><%= label_tag(:victim_ids, "Enemies:") %></p>
+<p><%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true}) %></p>
+<%= f.hidden_field :group_id, value: @group.id %>
+<%= button_tag(:class => 'btn btn-outline-dark my-2 my-sm-0') do %>
+  Trash <i class="far fa-trash-alt"></i>
+  <% end %>
+<% end %>
+</div>
