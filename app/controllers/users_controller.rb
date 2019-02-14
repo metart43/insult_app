@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @insults = @user.all_insults
+    @allgroups = Group.all
   end
 
   def new
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to home_path
     elsif !@user.save
       render :new
     end

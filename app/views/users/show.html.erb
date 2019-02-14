@@ -1,7 +1,8 @@
-<h1><%= @user.username %></h1>
+<h1>@<%= @user.username %></h1>
 
 <h2><%= @user.name %></h2>
 
+<% if @user != current_user %>
 <div class="dropdown">
   <button class="dropbtn">Add <%= @user.name %> to a group</button>
   <div class="dropdown-content">
@@ -10,6 +11,7 @@
     <% end %>
   </div>
 </div>
+<% end %>
 
 <h3>Insults</h3>
 <%= render "insult_feed" %>
