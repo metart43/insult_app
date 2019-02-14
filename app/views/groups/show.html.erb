@@ -31,7 +31,7 @@
   <div class="side-box">
     <h5><%= @group.name %> Top 5</h5>
       <% @group.top_5.each do |u| %>
-        <p><%= link_to "@#{u.username}", user_path(u) %> - <%= u.insults.count %></p>
+        <p><%= link_to "@#{u.username}", user_path(u) %> - <%= @group.count_users_insults_in_group(u) %></p>
       <% end %>
   </div>
 
