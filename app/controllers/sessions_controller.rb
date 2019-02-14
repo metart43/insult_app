@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  layout false
+
+   layout "logged43"
 
   def new
   end

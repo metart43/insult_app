@@ -108,3 +108,12 @@
 .insult-box a:hover {
   text-decoration: none;
 }
+
+.navbar-brand{
+  font-size: 30px;
+  justify-content: center;
+}
+
+.login{
+  padding: 50px;
+}
