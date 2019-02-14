@@ -26,6 +26,6 @@
     </div>
   <% else %>
     <div class="side-button">
-      <a href="/users/<%=@user.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-user-button" role="button" data-method="delete"><i class="far fa-trash-alt"></i> your account</a>
+      <a href="/users/<%=@user.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-user-button" role="button" data-method="delete" data-confirm="Are you sure?"><i class="far fa-trash-alt"></i> your account</a>
     <% end %>
 </div>
