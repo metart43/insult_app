@@ -122,6 +122,10 @@
   border: 1px solid #D1CFC8;
 }
 
+#delete-insult-button i {
+  margin-right: 5px;
+}
+
 #delete-insult-button:hover {
   background-color: #343a40;
   color: white;
@@ -149,6 +153,25 @@
 }
 
 /* group page */
-.group_heading h3{
-  justify-content: center;
+.group_heading {
+  margin-top: 15px;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #FAF7EF;
+  color: #343a40;
+}
+
+.group_heading span b {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.group_heading span i {
+  margin-right: 20px;
+}
+
+.group_heading span {
+  font-size: 1.5rem;
+  font-weight: normal;
 }
