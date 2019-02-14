@@ -9,11 +9,18 @@
 
 <div class="col-2">
   <% if @user != current_user %>
-    <div class="dropdown">
-      <button class="dropbtn">Add <%= @user.name %> to a group</button>
-      <div class="dropdown-content">
-        <% current_user.groups.each do |g| %>
-          <%= link_to g.name, add_path(group_id: g.id, user_id: @user.id), method: :post %>
+    <div class="side-button dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Add @<%= @user.username %> to:
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% current_user_groups.each do |g| %>
+          <% if !g.users.include?(@user) %>
+            <%= link_to g.name, add_path(group_id: g.id, user_id: @user.id), method: :post, class: "dropdown-item" %>
+          <% end %>
+        <% end %>
+        <% if (current_user_groups.all? {|g| g.users.include?(@user)}) %>
+          <a class="dropdown-item" href="#">None available</a>
         <% end %>
       </div>
     </div>

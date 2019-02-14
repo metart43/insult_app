@@ -30,7 +30,7 @@
             <div id="side-button1" class="side-button">
               <a href="/groups/new" class="btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get">New group</a>
             </div>
-            <div class="side-button dropdown" id="side-button2">
+            <div class="side-button dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Your groups
               </button>
@@ -40,13 +40,13 @@
                 <% end %>
               </div>
             </div>
-            <div class="side-button dropdown" id="side-button3">
+            <div class="side-button dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Trash someone
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <% current_user_groups.each do |g| %>
-                  <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
+                  <%= link_to g.name, new_insult_path(group_id: g.id), class: "dropdown-item" %>
                 <% end %>
               </div>
             </div>

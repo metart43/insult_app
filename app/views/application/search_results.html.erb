@@ -3,13 +3,20 @@
 <% @groups.each do |g| %>
   <%= link_to g.name, group_path(g) %>
 <% end %>
+<div class="all_results col-8">
+  <div class="show_heading">
+    <span><b>Search Results For: <%= @query %></b></span>
+  </div>
+  <div class="search-box">
+    <% @groups.each do |g| %>
+      <p><%= link_to g.name, group_path(g) %></p>
+    <% end %>
+    <% @users.each do |u| %>
+      <p><%= link_to "@#{u.username}", user_path(u) %></p>
+    <% end %>
 
-<% @users.each do |u| %>
-  <%= link_to "@#{u.name}", user_path(u) %>
-<% end %>
-
-
-<% if @groups.empty? && @users.empty? %>
-  <h3>Sorry! No results found</h3>
-<% end %>
+    <% if @groups.empty? && @users.empty? %>
+      <h3>Sorry! No results found</h3>
+    <% end %>
+  </div>
 </div>

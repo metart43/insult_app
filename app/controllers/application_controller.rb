@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
 
   def search_results
     @query = params[:q]
-    @users = User.search(@query)
-    @groups = Group.search(@query)
+    @users = User.search(@query).uniq
+    @groups = Group.search(@query).uniq
   end
 
 end

@@ -41,18 +41,6 @@
   position: fixed;
 }
 
-/* #side-button1 {
-  position: fixed;
-} */
-
-/* #side-button2 {
-  position: fixed;
-}
-
-#side-button3 {
-  position: fixed;
-} */
-
 .blank {
 
 }
@@ -207,6 +195,15 @@ margin-top: 25px;
 margin-right: 450px;
 margin-left: 200px;
 }
+
 .new_insult{
   margin-top: 15px;
+}
+
+.search-box {
+  margin-top: 15px;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #FAF7EF;
+  color: #343a40;
 }
