@@ -1,14 +1,24 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
 <div class="error">
   <%= flash["notice"] %>
 </div>
-<%= form_tag '/login' do%>
-  <%= label :username, "Username" %>
-  <%= text_field_tag :username %>
-  <%= label :password, "Password" %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Login" %>
-<% end %>
 
-<p>Or, create an account:</p>
-<%= link_to "Sign up", new_user_path %>
+<%= form_tag '/login' do%>
+  <p><%= label :username, "Username" %>
+  <%= text_field_tag :username, nil, placeholder: "Enter trashy user name", class: "form-control" %></p>
+<p><%= label :password, "Password"  %>
+  <%= password_field_tag :password, nil, placeholder: "Password cannot be trashy though", class: "form-control" %></p>
+  <%= submit_tag "Login", class: 'btn btn-outline-dark my-2 my-sm-0' %>
+<% end %>
+<p>Don't have an account yet!?</p>
+<a class="nav-link" href="/users/new">
+Start Trashing Your Friends Immidiately!<i class="fas fa-dumpster-fire"></i></a>
