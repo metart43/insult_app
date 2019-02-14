@@ -6,22 +6,39 @@
   <%= render "insult_feed" %>
 </div>
 <div class="sidebar-right col-2">
-  <h5>Group members:</h5>
-  <ul>
-    <% @group.users.each do |u| %>
-      <li>@<%= u.username %> (has trashed <%= u.insults.count %> people)</li>
-    <% end %>
-  </ul>
-  <%= form_tag({controller: "users", action: "search_results"}, method: "get") do %>
-    <%= label_tag(:q, "Search for a friend:") %><br>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
+  <% if @group.users.include?(current_user) %>
+  <div class="side-button">
+    <a href="/leave/<%=@group.id%>" class="btn btn-outline-dark my-2 my-sm-0" role="button" data-method="post">Leave <%=@group.name%></a>
+  </div>
+  <div class="side-button">
+  <%= link_to "Trash someone", new_insult_path(group_id: @group.id), class: "btn btn-outline-dark my-2 my-sm-0" %>
+  </div>
+  <% else %>
+  <div class="side-button">
+  <%= link_to "Join this group", join_path(@group.id), method: :post, class: "btn btn-outline-dark my-2 my-sm-0" %>
+  </div>
   <% end %>
 
-  <% if @group.users.include?(current_user) %>
-  <%= link_to "Add insult to group", new_insult_path(group_id: @group.id) %>
-  <%= link_to "Leave this group", leave_path(@group.id), method: :post%>
-  <% else %>
-  <%= link_to "Join this group", join_path(@group.id), method: :post %>
-  <% end %>
+  <form class="form-inline" action="/search_users" method="get">
+    <div class="side-search">
+    <input class="form-control mr-sm-2" type="text" name="q" id="q" placeholder="Find a user">
+    </div>
+    <div class="side-button">
+    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </div>
+  </form>
+
+  <div class="side-box">
+    <h5><%= @group.name %> Top 5</h5>
+      <% @group.top_5.each do |u| %>
+      <%= link_to "@#{u.username}", user_path(u) %> - <%= u.insults.count %>
+      <% end %>
+  </div>
+
+  <div class="side-box">
+    <h5>All members</h5>
+      <% @group.users.each do |u| %>
+        <%= link_to "@#{u.username}", user_path(u) %>
+      <% end %>
+  </div>
 </div>

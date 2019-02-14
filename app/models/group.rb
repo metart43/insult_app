@@ -11,4 +11,8 @@ class Group < ApplicationRecord
     end
   end
 
+  def top_5
+    self.users.sort_by {|u| u.insults.count}.reverse.first(5)
+  end
+
 end

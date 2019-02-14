@@ -175,3 +175,20 @@
   font-size: 1.5rem;
   font-weight: normal;
 }
+
+.side-search {
+  margin-top: 15px;
+}
+
+.side-box {
+  margin-top: 15px;
+  border-radius: .25rem;
+  padding: 15px;
+  background-color: #FAF7EF;
+  color: #343a40;
+  min-width: 170px;
+}
+
+.side-box a {
+  color: #4CAF50;
+}
