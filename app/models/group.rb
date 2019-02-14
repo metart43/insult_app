@@ -2,6 +2,8 @@ class Group < ApplicationRecord
   has_many :user_groups
   has_many :users, through: :user_groups
   has_many :insults
+  
+  validates :name, presence: true, uniqueness: true, length: { in: 6..20 }
 
   def self.search(search)
     if search
