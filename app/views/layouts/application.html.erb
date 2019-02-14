@@ -46,7 +46,7 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <% current_user_groups.each do |g| %>
-                  <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
+                  <%= link_to g.name, new_insult_path(group_id: g.id), class: "dropdown-item" %>
                 <% end %>
               </div>
             </div>
