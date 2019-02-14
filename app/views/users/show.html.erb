@@ -1,21 +1,24 @@
-<h1>@<%= @user.username %></h1>
-
-<h2><%= @user.name %></h2>
-
-<% if @user != current_user %>
-<div class="dropdown">
-  <button class="dropbtn">Add <%= @user.name %> to a group</button>
-  <div class="dropdown-content">
-    <% current_user.groups.each do |g| %>
-      <%= link_to g.name, add_path(group_id: g.id, user_id: @user.id), method: :post %>
-    <% end %>
+<div class="col-8">
+  <div class="show_heading">
+    <span><b>@<%= @user.username %></b><i class="far fa-trash-alt"></i><%= @user.name %></span>
   </div>
-</div>
-<% end %>
 
-<h3>Insults</h3>
 <%= render "insult_feed" %>
 
-<% if @user == current_user %>
-<%= button_to "Delete your account", @user, method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
+</div>
+
+<div class="col-2">
+  <% if @user != current_user %>
+    <div class="dropdown">
+      <button class="dropbtn">Add <%= @user.name %> to a group</button>
+      <div class="dropdown-content">
+        <% current_user.groups.each do |g| %>
+          <%= link_to g.name, add_path(group_id: g.id, user_id: @user.id), method: :post %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="side-button">
+      <a href="/users/<%=@user.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-user-button" role="button" data-method="delete"><i class="far fa-trash-alt"></i> your account</a>
+    <% end %>
+</div>
