@@ -1,5 +1,5 @@
-<h3>Search Results For: <%= @query %></h3>
-<div class="all_results">
+<div class="all_results col-8">
+  <h3>Search Results For: <%= @query %></h3>
 <% @groups.each do |g| %>
   <%= link_to g.name, group_path(g) %>
 <% end %>
