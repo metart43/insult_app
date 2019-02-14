@@ -1,8 +1,8 @@
   <% if !@insults.empty? %>
     <% @insults.sort_by(&:created_at).reverse.each do |i| %>
     <div class="insult-box">
-      <h4><%= i.bully.name %> (<%= link_to "@#{i.bully.username}", user_path(i.bully) %>) in <%= i.group.name %> on <%= i.created_at.strftime("%b %d") %> at <%= i.created_at.strftime("%H:%M") %></h4>
-      <p>insulted <%= i.victims.map(&:link_username).to_sentence.html_safe %>:</p>
+      <span><b><%= i.bully.name %> (<%= link_to "@#{i.bully.username}", user_path(i.bully) %>)</b> in <%= link_to i.group.name, group_path(i.group) %> on <%= i.created_at.strftime("%b %d") %> at <%= i.created_at.strftime("%H:%M") %></span>
+      <p>trashed <span><%= i.victims.map(&:link_username).to_sentence.html_safe %>:</span></p>
       <p><%= i.content %></p>
       <% if i.bully == current_user || i.victims.include?(current_user) %>
         <a href="/insults/<%=i.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-insult-button" role="button" data-method="delete">Send this insult to heaven</a>

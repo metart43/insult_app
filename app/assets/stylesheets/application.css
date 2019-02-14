@@ -131,6 +131,14 @@
   text-decoration: none;
 }
 
+.insult-box span b{
+  font-size: 1.5rem;
+}
+
+.insult-box span {
+  font-size: 1.25rem;
+}
+
 .navbar-brand{
   font-size: 30px;
   justify-content: center;
@@ -138,4 +146,9 @@
 
 .login{
   padding: 50px;
+}
+
+/* group page */
+.group_heading h3{
+  justify-content: center;
 }

@@ -1,22 +1,15 @@
-<h3>Group name:</h3>
-<%= @group.name %>
-<h4>Group Description:</h4>
-<%= @group.description %>
-<h4>Group members:</h4>
+<div class="group_heading">
+  <h3><%= @group.name %></h3>
+  <h5><%= @group.description %></h5>
+</div>
+
+<h5>Group members:</h5>
 <ul>
   <% @group.users.each do |u| %>
-    <li>Username: <%= u.name %></li>
-    <li>Insulted victims <%= u.insults.count %> times</li>
-        <% u.insults.each do |i| %>
-        <li> Content: <%= i.content %></li>
-        <li><%= "#{u.name}'s" %> Victims: <% i.victims.each do |v| %></li>
-        <li><%= v.name %></li>
-        <% end %>
-        <% end %>
-    <% end %>
+    <li>@<%= u.username %> (has trashed <%= u.insults.count %> people)</li>
+  <% end %>
 </ul>
 
-<h4>Insults</h4>
 <%= render "insult_feed" %>
 
 <h3>Search for a friend to add:</h3>
