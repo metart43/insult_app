@@ -4,6 +4,7 @@
     <title>InsultApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
@@ -11,8 +12,9 @@
 
   <body>
 
-        <nav class="nav navbar navbar-light sticky-top justify-content-center">
-            <a href="/users/<%=current_user.id%>" class="nav-item btn btn-outline-dark my-2 my-sm-0" id="nav-button" role="button" data-method="get"><%=current_user.name%></a>
+        <nav class="nav navbar navbar-light sticky-top ">
+        <span class="navbar-brand mb-0 h1 mr-auto p-2" id="app_title">Trash<i class="far fa-trash-alt"></i></span>
+            <a href="/users/<%=current_user.id%>" class="nav-item btn btn-outline-dark my-2 my-sm-0 flex-md-row" id="nav-button" role="button" data-method="get"><%=current_user.name%></a>
             <a href="/home" class="nav-item btn btn-outline-dark my-2 my-sm-0" id="nav-button" role="button" data-method="get">Home</a>
             <a href="/logout" class="nav-item btn btn-outline-dark my-2 my-sm-0" id="nav-button" role="button" data-method="delete">Log out</a>
             <form class="form-inline" action="/search_results" method="get">
