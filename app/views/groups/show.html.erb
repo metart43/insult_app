@@ -1,26 +1,27 @@
-<div class="group_heading">
-  <span><b><%= @group.name %></b><i class="far fa-trash-alt"></i>(<%= @group.description %>)</span>
+<div class="col-8">
+  <div class="group_heading">
+    <span><b><%= @group.name %></b><i class="far fa-trash-alt"></i>(<%= @group.description %>)</span>
+  </div>
+
+  <%= render "insult_feed" %>
 </div>
-
-<h5>Group members:</h5>
-<ul>
-  <% @group.users.each do |u| %>
-    <li>@<%= u.username %> (has trashed <%= u.insults.count %> people)</li>
+<div class="sidebar-right col-2">
+  <h5>Group members:</h5>
+  <ul>
+    <% @group.users.each do |u| %>
+      <li>@<%= u.username %> (has trashed <%= u.insults.count %> people)</li>
+    <% end %>
+  </ul>
+  <%= form_tag({controller: "users", action: "search_results"}, method: "get") do %>
+    <%= label_tag(:q, "Search for a friend:") %><br>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
   <% end %>
-</ul>
 
-<%= render "insult_feed" %>
-
-<h3>Search for a friend to add:</h3>
-<%= form_tag({controller: "users", action: "search_results"}, method: "get") do %>
-  <%= label_tag(:q, "Search for a friend:") %><br>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-<% if @group.users.include?(current_user) %>
-<%= link_to "Add insult to group", new_insult_path(group_id: @group.id) %>
-<%= link_to "Leave this group", leave_path(@group.id), method: :post%>
-<% else %>
-<%= link_to "Join this group", join_path(@group.id), method: :post %>
-<% end %>
+  <% if @group.users.include?(current_user) %>
+  <%= link_to "Add insult to group", new_insult_path(group_id: @group.id) %>
+  <%= link_to "Leave this group", leave_path(@group.id), method: :post%>
+  <% else %>
+  <%= link_to "Join this group", join_path(@group.id), method: :post %>
+  <% end %>
+</div>
