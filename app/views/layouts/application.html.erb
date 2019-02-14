@@ -10,47 +10,52 @@
   </head>
 
   <body>
-      <nav class="nav navbar navbar-light sticky-top justify-content-end">
-        <a href="/users/<%=current_user.id%>" class="nav-item btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get"><%=current_user.name%></a>
-        <a href="/home" class="nav-item btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get">Home</a>
-        <a href="/logout" class="nav-item btn btn-outline-dark my-2 my-sm-0" role="button" data-method="delete">Log out</a>
-          <form class="form-inline" action="/search_results" method="get">
-            <input class="form-control mr-sm-2" type="text" name="q" id="q" placeholder="Search InsultApp">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-          </form>
-      </nav>
 
+        <nav class="nav navbar navbar-light sticky-top justify-content-center">
+            <a href="/users/<%=current_user.id%>" class="nav-item btn btn-outline-dark my-2 my-sm-0" id="nav-button" role="button" data-method="get"><%=current_user.name%></a>
+            <a href="/home" class="nav-item btn btn-outline-dark my-2 my-sm-0" id="nav-button" role="button" data-method="get">Home</a>
+            <a href="/logout" class="nav-item btn btn-outline-dark my-2 my-sm-0" id="nav-button" role="button" data-method="delete">Log out</a>
+            <form class="form-inline" action="/search_results" method="get">
+              <input class="form-control mr-sm-2" type="text" name="q" id="q" placeholder="Rummage through trash">
+              <button class="btn btn-outline-dark my-2 my-sm-0" id="nav-button" type="submit">Search</button>
+            </form>
+        </nav>
 
+    <div class="container">
+      <div class="row">
+        <div class="sidebar col-2">
+          <div id="side-button">
+            <a href="/groups/new" class="btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get">New group</a>
+          </div>
+          <div class="dropdown" id="side-button">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Your groups
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">hello world</a>
+              <% current_user_groups.each do |g| %>
+                <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
+              <% end %>
+            </div>
+          </div>
+          <div class="dropdown" id="side-button">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              New insult
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% current_user_groups.each do |g| %>
+                <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
-    <div class="sidebar btn-group-vertical" role="group">
-      <button type="button" class="side-button btn btn-info btn-block"><%= link_to "Create a new group", new_group_path %></button>
-       <div class="dropdown">
-         <button type="button" class="side-button btn btn-info btn-block">Your groups</button>
-         <div class="dropdown-content">
-           <% current_user_groups.each do |g| %>
-             <%= link_to g.name, group_path(g) %>
-           <% end %>
-         </div>
-       </div>
-       <div class="dropdown btn-group-vertical">
-         <button type="button" class="side-button btn btn-info btn-block">New insult</button>
-         <div class="dropdown-content">
-           <% current_user_groups.each do |g| %>
-             <%= link_to g.name, new_insult_path(group_id: g.id) %>
-           <% end %>
-         </div>
-       </div>
+        <div class="feed col-8">
+          <%= yield %>
+        </div>
+        <div class="blank col-2">
 
-    </div>
-    <div class="row">
-      <div class="col-1">
-
-      </div>
-      <div class="feed col-8">
-        <%= yield %>
-      </div>
-      <div class="col-3">
-
+        </div>
       </div>
     </div>
 

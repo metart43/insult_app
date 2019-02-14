@@ -1,3 +1,4 @@
+
 .nav {
   background-color: #FFCC43;
 }
@@ -6,36 +7,43 @@
   margin-right: 10px;
 }
 
-.sidebar {
-  height: 113px;
-  width: 180px;
-  flex: 0 auto;
+#nav-button {
+  background-color: #FAF7EF;
+  color: #343a40;
 }
 
-.feed{
-  padding-left: 220px;
-}
-
-.side-button {
-  border-radius: 0;
-  flex: 0 auto;
-}
-
-.side-button a:visited {
+#nav-button:hover {
+  background-color: #343a40;
   color: white;
 }
 
-.side-button a:hover {
-  text-decoration: none;
+#q {
+  width: 200px;
 }
 
-/* .nav a:visited {
-  color: black;
-} */
+#side-button {
+  margin-top: 15px;
+}
+
+#side-button .btn {
+  background-color: #FAF7EF;
+  color: #343a40;
+  border: 1px solid #343a40;
+}
+
+#side-button .btn:hover {
+  color: #343a40;
+  background-color: #FFCC43;
+}
+
+.blank {
+
+}
 
 .search-bar {
   padding: .5rem 1rem;
 }
+
 /* Dropdown Button */
 .dropbtn {
   /* background-color: #4CAF50; */
@@ -82,14 +90,14 @@
 
 .insult-box {
   border: 1px solid gray;
-  margin-bottom: 15px;
+  margin-top: 15px;
   border-radius: 15px;
   padding: 15px;
   background-color: #FAF7EF;
 }
 
 .insult-box a:not(#delete-insult-button) {
-  color: #395EFF;
+  color: #4CAF50;
 }
 
 #delete-insult-button:hover {
