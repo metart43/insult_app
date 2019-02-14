@@ -28,4 +28,10 @@
     <div class="side-button">
       <a href="/users/<%=@user.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-user-button" role="button" data-method="delete" data-confirm="Are you sure?"><i class="far fa-trash-alt"></i> your account</a>
     <% end %>
+    <div class="side-box">
+      <h5>Groups</h5>
+        <% @user.groups.each do |g| %>
+          <p><%= link_to g.name, group_path(g) %></p>
+        <% end %>
+    </div>
 </div>

@@ -31,14 +31,14 @@
   <div class="side-box">
     <h5><%= @group.name %> Top 5</h5>
       <% @group.top_5.each do |u| %>
-      <%= link_to "@#{u.username}", user_path(u) %> - <%= u.insults.count %>
+        <p><%= link_to "@#{u.username}", user_path(u) %> - <%= u.insults.count %></p>
       <% end %>
   </div>
 
   <div class="side-box">
     <h5>All members</h5>
       <% @group.users.each do |u| %>
-        <%= link_to "@#{u.username}", user_path(u) %>
+        <p><%= link_to "@#{u.username}", user_path(u) %></p>
       <% end %>
   </div>
 </div>

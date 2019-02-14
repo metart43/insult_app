@@ -9,19 +9,22 @@
     <% end %>
   </ul>
   <% end %>
-
-  <h3>Trash someone in: <%= @group.name %></h3>
-  <%= form_for @insult do |f|%>
-  <%= label_tag(:content) do %>
-  Content <i class="fas fa-poo"></i>
-  <% end %>
-  <p><%= f.text_area(:content,  placeholder:"Trash Here!", class: 'form-control') %></p>
-  <p><%= label_tag(:victim_ids, "Enemies:") %></p>
-  <p><%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true, :class=>'form-control'}) %></p>
-  <%= f.hidden_field :group_id, value: @group.id %>
-  <%= button_tag(:class => 'btn btn-outline-dark my-2 my-sm-0') do %>
-    Trash <i class="far fa-trash-alt"></i>
+  <div class="show_heading">
+    <span><b>Trash someone in <%= link_to @group.name, group_path(@group) %></b></span>
+  </div>
+  <div class="form-box">
+    <%= form_for @insult do |f|%>
+      <span><%= label_tag(:content) do %>
+        <b>Content</b><i class="fas fa-poo"></i>
+      <% end %></span>
+      <p><%= f.text_area(:content,  placeholder:"Trash Here!", class: 'form-control') %></p>
+      <span><b><%= label_tag(:victim_ids, "Choose group members to trash") %></b></span>
+      <p><%= f.collection_select(:victim_ids, @users, :id, :name, {:prompt => false}, {:multiple => true, :class=>'form-control'}) %></p>
+      <%= f.hidden_field :group_id, value: @group.id %>
+      <%= button_tag(:class => 'btn btn-outline-dark my-2 my-sm-0') do %>
+        Trash <i class="far fa-trash-alt"></i>
+        <% end %>
     <% end %>
-  <% end %>
+    </div>
   </div>
 </div>
