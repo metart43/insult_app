@@ -8,8 +8,9 @@
 }
 
 #nav-button {
-  background-color: #FAF7EF;
+  background-color: #FFCC43;
   color: #343a40;
+  border: 1px solid #CCA336;
 }
 
 #nav-button:hover {
@@ -21,20 +22,36 @@
   width: 200px;
 }
 
-#side-button {
+.side-button {
   margin-top: 15px;
 }
 
-#side-button .btn {
-  background-color: #FAF7EF;
+.side-button .btn {
+  background-color: white;
   color: #343a40;
-  border: 1px solid #343a40;
+  border: 1px solid #D1CFC8;
 }
 
-#side-button .btn:hover {
-  color: #343a40;
-  background-color: #FFCC43;
+.side-button .btn:hover {
+  background-color: #343a40;
+  color: white;
 }
+
+.sidebar {
+  position: fixed;
+}
+
+/* #side-button1 {
+  position: fixed;
+} */
+
+/* #side-button2 {
+  position: fixed;
+}
+
+#side-button3 {
+  position: fixed;
+} */
 
 .blank {
 
@@ -89,20 +106,25 @@
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .insult-box {
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   margin-top: 15px;
   border-radius: 15px;
   padding: 15px;
   background-color: #FAF7EF;
+  color: #343a40;
 }
 
 .insult-box a:not(#delete-insult-button) {
   color: #4CAF50;
 }
 
+#delete-insult-button {
+  border: 1px solid #D1CFC8;
+}
+
 #delete-insult-button:hover {
-  color: #343a40;
-  background-color: #FFCC43;
+  background-color: #343a40;
+  color: white;
 }
 
 .insult-box a:hover {

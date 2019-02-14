@@ -23,29 +23,31 @@
 
     <div class="container">
       <div class="row">
-        <div class="sidebar col-2">
-          <div id="side-button">
-            <a href="/groups/new" class="btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get">New group</a>
-          </div>
-          <div class="dropdown" id="side-button">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Your groups
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">hello world</a>
-              <% current_user_groups.each do |g| %>
-                <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
-              <% end %>
+        <div class="col-2">
+          <div class="sidebar">
+            <div id="side-button1" class="side-button">
+              <a href="/groups/new" class="btn btn-outline-dark my-2 my-sm-0" role="button" data-method="get">New group</a>
             </div>
-          </div>
-          <div class="dropdown" id="side-button">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              New insult
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <% current_user_groups.each do |g| %>
-                <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
-              <% end %>
+            <div class="side-button dropdown" id="side-button2">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Your groups
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">hello world</a>
+                <% current_user_groups.each do |g| %>
+                  <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
+                <% end %>
+              </div>
+            </div>
+            <div class="side-button dropdown" id="side-button3">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                New insult
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <% current_user_groups.each do |g| %>
+                  <a class="dropdown-item" href="/groups/<%=g.id%>"><%=g.name%></a>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
