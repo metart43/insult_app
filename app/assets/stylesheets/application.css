@@ -176,6 +176,7 @@
   font-weight: normal;
 }
 
+
 .side-search {
   margin-top: 15px;
 }
@@ -191,4 +192,8 @@
 
 .side-box a {
   color: #4CAF50;
+}
+
+#group_form{
+  margin-top: 15px;
 }
