@@ -1,5 +1,14 @@
-<h3>Search results for <%= @query %></h3>
+<div class="all_results col-8">
+  <div class="show_heading">
+    <span><b>Search Results For: <%= @query %></b></span>
+  </div>
+  <div class="search-box">
+    <% @users.each do |u| %>
+      <%= link_to "@#{u.username}", user_path(u) %>
+    <% end %>
 
-<% @users.each do |u| %>
-  <%= link_to u.name, user_path(u) %>
-<% end %>
+    <% if @users.empty? %>
+      <h3>Sorry! No results found</h3>
+    <% end %>
+  </div>
+</div>

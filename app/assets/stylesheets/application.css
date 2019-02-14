@@ -207,3 +207,7 @@ margin-left: 200px;
   background-color: #FAF7EF;
   color: #343a40;
 }
+
+.form-control{
+  width: 350px;
+}
