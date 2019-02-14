@@ -119,10 +119,6 @@
   color: white;
 }
 
-.insult-box a:hover {
-  text-decoration: none;
-}
-
 .insult-box span b{
   font-size: 1.5rem;
 }
@@ -164,6 +160,9 @@
   font-weight: normal;
 }
 
+.show_heading a {
+  color: #4CAF50;
+}
 
 .side-search {
   margin-top: 15px;
@@ -180,6 +179,14 @@
 
 .side-box a {
   color: #4CAF50;
+}
+
+.side-box h5 {
+  margin-bottom: 1rem;
+}
+
+.side-box p {
+  margin-bottom: .5rem;
 }
 
 .side-button i {
@@ -218,4 +225,13 @@ margin-left: 200px;
   padding: 15px;
   background-color: #FAF7EF;
   color: #343a40;
+}
+
+.form-box span {
+  font-size: 1.25rem;
+}
+
+.form-box span b {
+  font-weight: normal;
+  margin-right: 10px;
 }
