@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   def resolve_layout
     case action_name
     when "new", "create"
-      false
+      "logged43"
     else
       "application"
     end
