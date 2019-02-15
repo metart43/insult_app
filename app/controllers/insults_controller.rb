@@ -22,6 +22,9 @@ class InsultsController < ApplicationController
     end
   end
 
+  def show
+    @insult = Insult.find(params[:id])
+  end
 
   def destroy
     Insult.destroy(params[:id])

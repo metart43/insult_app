@@ -1,0 +1,7 @@
+<div class="insult-box">
+<span><b><%= @insult.bully.name %> (<%= link_to "@#{@insult.bully.username}", user_path(@insult.bully) %>)</b> in <%= link_to @insult.group.name, group_path(@insult.group) %> on <%= @insult.created_at.strftime("%b %d") %> at <%= @insult.created_at.strftime("%H:%M") %></span>
+<p>trashed <span><%= @insult.victims.map(&:link_username).to_sentence.html_safe %>:</span></p>
+<p><%= @insult.content %></p>
+  <script>  var msg = new SpeechSynthesisUtterance("<%= @insult.content%>"); </script>
+    <button type="button" class="btn btn-outline-dark my-2 my-sm-0" onclick="window.speechSynthesis.speak(msg);"><i class="fas fa-play"></i></button>
+    </div>
