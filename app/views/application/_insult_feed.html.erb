@@ -6,6 +6,7 @@
       <p><%= i.content %></p>
       <% if i.bully == current_user || i.victims.include?(current_user) %>
         <a href="/insults/<%=i.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-insult-button" role="button" data-method="delete"><i class="far fa-trash-alt"></i>take out the trash</a>
+        <a href="/insults/<%=i.id%>" class="btn btn-outline-dark my-2 my-sm-0" id="delete-insult-button" role="button" data-method="get"><i class="far fa-eye"></i>show</a>
       <% end %>
     </div>
     <% end %>

@@ -135,6 +135,7 @@ body {
 
 #delete-insult-button {
   border: 1px solid #D1CFC8;
+  margin-right: 15px;
 }
 
 #delete-insult-button i {
