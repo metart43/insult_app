@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_insults
   helper_method :logged_in?
 
+  def about
+  end
+
   def current_user
     User.find_by(id: session["user_id"])
   end

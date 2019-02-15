@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/join/:id", to: 'groups#join', as: 'join'
   post "/add/:id", to: "groups#add", as: "add"
   get '/home', to: 'users#home'
+  get '/about', to: 'application#about'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

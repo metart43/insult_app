@@ -1,9 +1,33 @@
-/* body {
+body {
+  color: #343a40;
+}
+
+.insult-box p:last-of-type {
   font-family: 'Varela Round', sans-serif;
+}
+
+/* .nav .form-control {
+  font-size: .9rem;
 } */
 
 .nav {
   background-color: #FFCC43;
+}
+
+.navbar-light .navbar-brand{
+  font-size: 2rem;
+  color: #343a40;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.navbar-light .navbar-brand a {
+  color: #343a40;
+}
+
+.navbar-light .navbar-brand a:hover {
+  color: rgba(0,0,0,0.9);
+  text-decoration: none;
 }
 
 .nav-item {
@@ -128,11 +152,6 @@
 
 .insult-box span {
   font-size: 1.25rem;
-}
-
-.navbar-brand{
-  font-size: 30px;
-  justify-content: center;
 }
 
 .login{
