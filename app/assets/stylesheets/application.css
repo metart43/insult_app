@@ -1,3 +1,6 @@
+/* body {
+  font-family: 'Varela Round', sans-serif;
+} */
 
 .nav {
   background-color: #FFCC43;
@@ -213,6 +216,10 @@ margin-left: 200px;
   padding: 15px;
   background-color: #FAF7EF;
   color: #343a40;
+}
+
+.search-box a {
+  color: #4CAF50;
 }
 
 .form-control{
