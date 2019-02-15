@@ -12,7 +12,7 @@ class User < ApplicationRecord
       results = []
       results << self.where("username like ?", "%#{search}%").to_a
       results << self.where("name like ?", "%#{search}%").to_a
-      results.flatten
+      results.flatten.uniq
     else
       self.all
     end

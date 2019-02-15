@@ -4,7 +4,7 @@
   </div>
   <div class="search-box">
     <% @users.each do |u| %>
-      <%= link_to "@#{u.username}", user_path(u) %>
+      <p><%= link_to "@#{u.username}", user_path(u) %></p>
     <% end %>
 
     <% if @users.empty? %>
