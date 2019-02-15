@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_02_15_153858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "group_id"
-    t.integer "points"
+    t.integer "points", default: 0
   end
 
   create_table "user_groups", force: :cascade do |t|
